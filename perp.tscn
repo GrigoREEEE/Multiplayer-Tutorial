@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://i7lsju7bq1an"]
+
+[ext_resource type="Script" path="res://perp.gd" id="1_q8x2e"]
+
+[node name="Perp" type="HBoxContainer"]
+script = ExtResource("1_q8x2e")
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "Biba"
+horizontal_alignment = 1
+
+[node name="Choice" type="Button" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "This is the perpetrator!"
+
+[connection signal="pressed" from="Choice" to="." method="_on_choice_pressed"]

@@ -1,0 +1,284 @@
+[gd_scene load_steps=4 format=3 uid="uid://bt13jko8i5tec"]
+
+[ext_resource type="Script" path="res://SceneManager.gd" id="1_br64h"]
+[ext_resource type="PackedScene" uid="uid://cwld7ti0ms68j" path="res://player.tscn" id="2_7bveh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bsyir"]
+size = Vector2(785, 120)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_br64h")
+PlayerScene = ExtResource("2_7bveh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(537.5, 622)
+shape = SubResource("RectangleShape2D_bsyir")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_left = 145.0
+offset_top = 562.0
+offset_right = 929.0
+offset_bottom = 685.0
+
+[node name="SpawnLocations" type="Node2D" parent="."]
+
+[node name="0" type="Node2D" parent="SpawnLocations" groups=["PlayerSpawnPoint"]]
+position = Vector2(227, 486)
+
+[node name="1" type="Node2D" parent="SpawnLocations" groups=["PlayerSpawnPoint"]]
+position = Vector2(769, 486)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Rock" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 399.0
+offset_top = 9.0
+offset_right = 445.0
+offset_bottom = 40.0
+text = "Rock"
+
+[node name="Paper" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 465.0
+offset_top = 9.0
+offset_right = 519.0
+offset_bottom = 40.0
+text = "Paper"
+
+[node name="Scissors" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 543.0
+offset_top = 8.0
+offset_right = 613.0
+offset_bottom = 39.0
+text = "Scissors"
+
+[node name="Submit" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 462.0
+offset_top = 56.0
+offset_right = 525.0
+offset_bottom = 87.0
+text = "Submit"
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 209.0
+offset_top = 8.0
+offset_right = 335.0
+offset_bottom = 31.0
+text = "Whose turn it is:
+"
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="Control"]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="Choice" type="VBoxContainer" parent="Control/CenterContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Play" type="Button" parent="Control/CenterContainer/Choice"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "I am Playing!"
+
+[node name="Hide" type="Button" parent="Control/CenterContainer/Choice"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "I am Hiding!"
+
+[node name="RPC" type="VBoxContainer" parent="Control/CenterContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Rock" type="Button" parent="Control/CenterContainer/RPC"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Rock"
+
+[node name="Paper" type="Button" parent="Control/CenterContainer/RPC"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Paper"
+
+[node name="Scissors" type="Button" parent="Control/CenterContainer/RPC"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Scissors"
+
+[node name="Hiding" type="VBoxContainer" parent="Control/CenterContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Sit" type="Button" parent="Control/CenterContainer/Hiding"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Just Hide"
+
+[node name="Granade" type="Button" parent="Control/CenterContainer/Hiding"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Pull The Pin"
+
+[node name="Panel" type="Panel" parent="Control"]
+offset_left = 317.0
+offset_top = 174.0
+offset_right = 880.0
+offset_bottom = 462.0
+
+[node name="Hiding_Players" type="HBoxContainer" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 560.0
+offset_bottom = 23.0
+scale = Vector2(1.0025, 1)
+size_flags_vertical = 3
+
+[node name="Name" type="Label" parent="Control/Panel/Hiding_Players"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Player Name"
+horizontal_alignment = 1
+
+[node name="IP" type="Label" parent="Control/Panel/Hiding_Players"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Choice"
+horizontal_alignment = 1
+
+[node name="Player_Perp" type="VBoxContainer" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 30.0
+offset_right = 562.0
+offset_bottom = 287.0
+
+[node name="Ignore" type="Button" parent="Control/Panel"]
+layout_mode = 0
+offset_left = 565.0
+offset_top = 132.0
+offset_right = 820.0
+offset_bottom = 163.0
+text = "I don't want to hurt anyone!"
+
+[node name="Player_Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_right = 239.0
+offset_bottom = 649.0
+
+[node name="Player_Count" type="Label" parent="Control/Player_Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 32
+text = "Player Count: 9"
+
+[node name="Info" type="HBoxContainer" parent="Control/Player_Panel"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 44.0
+offset_right = 235.0
+offset_bottom = 84.0
+
+[node name="Name" type="Label" parent="Control/Player_Panel/Info"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "Name"
+vertical_alignment = 1
+
+[node name="Status" type="Label" parent="Control/Player_Panel/Info"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Status"
+
+[node name="Points" type="Label" parent="Control/Player_Panel/Info"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 16
+text = "Points"
+
+[node name="Player_States" type="VBoxContainer" parent="Control/Player_Panel"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 74.0
+offset_right = 239.0
+offset_bottom = 647.0
+
+[node name="Timer_Panel" type="Panel" parent="Control"]
+layout_mode = 0
+offset_left = 988.0
+offset_top = 1.0
+offset_right = 1152.0
+offset_bottom = 92.0
+
+[node name="Timer" type="Timer" parent="Control/Timer_Panel"]
+
+[node name="Time_Left" type="Label" parent="Control/Timer_Panel"]
+layout_mode = 0
+offset_right = 164.0
+offset_bottom = 93.0
+theme_override_font_sizes/font_size = 32
+text = "Time Left:
+5"
+horizontal_alignment = 1
+
+[node name="Warning" type="Panel" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 514.0
+offset_top = 1.0
+offset_right = 905.0
+offset_bottom = 92.0
+grow_horizontal = 2
+
+[node name="Warning_Hiding_Text" type="Label" parent="Control/Warning"]
+visible = false
+layout_mode = 0
+offset_right = 391.0
+offset_bottom = 93.0
+theme_override_font_sizes/font_size = 32
+text = "Warning! You saw player
+XXXX grab the granade."
+horizontal_alignment = 1
+
+[node name="Warning_Playing_Text" type="Label" parent="Control/Warning"]
+visible = false
+offset_right = 390.0
+offset_bottom = 93.0
+theme_override_font_sizes/font_size = 32
+text = "Warning! Someone
+ grabbed the granade."
+horizontal_alignment = 1
+
+[node name="testest" type="Button" parent="."]
+offset_left = 277.0
+offset_top = 101.0
+offset_right = 371.0
+offset_bottom = 132.0
+text = "Add Player"
+
+[connection signal="pressed" from="Control/Rock" to="." method="_on_rock_pressed"]
+[connection signal="pressed" from="Control/Paper" to="." method="_on_paper_pressed"]
+[connection signal="pressed" from="Control/Scissors" to="." method="_on_scissors_pressed"]
+[connection signal="pressed" from="Control/Submit" to="." method="_on_submit_pressed"]
+[connection signal="pressed" from="testest" to="." method="_on_testest_pressed"]
